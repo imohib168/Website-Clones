@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { db, storage } from "./firebase"
 import firebase from 'firebase'
-import './ImageUpload.css'; 
+import './ImageUpload.css';
 
 function ImageUpload({ username }) {
 
@@ -55,6 +55,8 @@ function ImageUpload({ username }) {
 
     return (
         <div className="imageUpload">
+            <h3>You Can upload your Posts here</h3>
+
             <progress
                 value={progress}
                 max="100"
@@ -65,13 +67,24 @@ function ImageUpload({ username }) {
                 placeholder="Enter a Caption..."
                 value={caption}
                 onChange={(event) => setCaption(event.target.value)}
+                className="imageUpload__caption"
             />
-            <input
-                type="file"
-                onChange={handleChange}
-            />
+            {/* <label for="file">Choose a file</label> */}
+            <div className="imageUpload__file">
+                <input
+                    type="file"
+                    id="file"
+                    className="imageUpload__fileUpload"
+                    onChange={handleChange}
+                />
+            </div>
 
-            <button onClick={handleUpload}>Upload</button>
+            <button
+                onClick={handleUpload}
+                disabled={!caption}
+            >
+                Upload
+            </button>
         </div>
     )
 }

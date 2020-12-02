@@ -4,7 +4,7 @@ import Posts from './Posts';
 import { db, auth } from "./firebase"
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Modal, Input, Button, Avatar } from '@material-ui/core';
+import { Modal, Input, Button, Avatar, Fade, Backdrop } from '@material-ui/core';
 
 import ImageUpload from './ImageUpload';
 
@@ -19,13 +19,18 @@ function getModalStyle() {
     };
 }
 const useStyles = makeStyles((theme) => ({
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0,0,0,0.6)'
+    },
     paper: {
-        position: 'absolute',
-        width: 400,
         backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
         boxShadow: theme.shadows[5],
+        outline: 'none',
         padding: theme.spacing(2, 4, 3),
+        width: '400px',
     },
 }));
 
@@ -93,75 +98,91 @@ function App() {
         <div className="App">
             {/* Modal */}
             <Modal
+                className={classes.modal}
                 open={open}
                 onClose={() => setOpen(false)}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
             >
-                <div style={modalStyle} className={classes.paper}>
-                    <form className="app__signup">
-                        <center>
-                            <img
-                                className="app__headerImage"
-                                src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-                                alt="Instagram Logo"
+                <Fade in={open}>
+                    <div className={classes.paper}>
+                        <form className="app__signup">
+                            <center>
+                                <img
+                                    className="app__headerImage"
+                                    src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                                    alt="Instagram Logo"
+                                />
+                            </center>
+
+                            <input
+                                placeholder="Username..."
+                                type="text"
+                                value={username}
+                                onChange={(event) => setUsername(event.target.value)}
                             />
-                        </center>
 
-                        <Input
-                            placeholder="username..."
-                            type="text"
-                            value={username}
-                            onChange={(event) => setUsername(event.target.value)}
-                        />
+                            <input
+                                placeholder="Email..."
+                                type="text"
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
+                            />
 
-                        <Input
-                            placeholder="Email..."
-                            type="text"
-                            value={email}
-                            onChange={(event) => setEmail(event.target.value)}
-                        />
+                            <input
+                                placeholder="Password..."
+                                type="password"
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)}
+                            />
 
-                        <Input
-                            placeholder="Password..."
-                            type="password"
-                            value={password}
-                            onChange={(event) => setPassword(event.target.value)}
-                        />
-
-                        <Button onClick={signUp} type="submit" >Signup</Button>
-                    </form>
-                </div>
+                            <button onClick={signUp} type="submit" >Signup</button>
+                        </form>
+                    </div>
+                </Fade>
             </Modal>
             <Modal
+                className={classes.modal}
                 open={openSignIn}
                 onClose={() => setOpenSignIn(false)}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
             >
-                <div style={modalStyle} className={classes.paper}>
-                    <form className="app__signup">
-                        <center>
-                            <img
-                                className="app__headerImage"
-                                src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-                                alt="Instagram Logo"
+                <Fade in={openSignIn}>
+                    <div className={classes.paper}>
+                        <form className="app__signup">
+                            <center>
+                                <img
+                                    className="app__headerImage"
+                                    src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                                    alt="Instagram Logo"
+                                />
+                            </center>
+
+                            <input
+                                placeholder="Email..."
+                                type="text"
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
                             />
-                        </center>
 
-                        <Input
-                            placeholder="Email..."
-                            type="text"
-                            value={email}
-                            onChange={(event) => setEmail(event.target.value)}
-                        />
+                            <input
+                                placeholder="Password..."
+                                type="password"
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)}
+                            />
 
-                        <Input
-                            placeholder="Password..."
-                            type="password"
-                            value={password}
-                            onChange={(event) => setPassword(event.target.value)}
-                        />
-
-                        <Button onClick={signIn} type="submit" >Login</Button>
-                    </form>
-                </div>
+                            <button onClick={signIn} type="submit" >Login</button>
+                        </form>
+                    </div>
+                </Fade>
             </Modal>
 
             {/* Header */}
@@ -182,7 +203,6 @@ function App() {
                                     alt={user.displayName}
                                     src="/static/images/avatar/1.jpg"
                                 />
-                                <h4>{user.displayName}</h4>
                             </div>
                             <button onClick={() => auth.signOut()}>Logout</button>
                         </div>
