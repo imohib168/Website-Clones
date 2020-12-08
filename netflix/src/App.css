@@ -1,0 +1,51 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #111;
+    color: white;
+}
+
+/* body::-webkit-scrollbar {
+    background-color: white;
+    color: black;
+} */
+
+.row {
+    margin-left: 20px;
+}
+
+.row__posters {
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    padding: 20px;
+}
+
+.row__posters::-webkit-scrollbar {
+    display: none;
+}
+
+.row__poster {
+    object-fit: contain;
+    width: 100%;
+    max-height: 120px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.row__posterLarge {
+    max-height: 250px;
+}
+
+.row__poster:hover {
+    transform: scale(1.08);
+}
+
+row__posterLarge:hover {
+    transform: scale(1.1);
+}
