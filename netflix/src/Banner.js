@@ -27,6 +27,7 @@ function Banner() {
         <>
             <header className="banner" style={{
                 backgroundSize: "cover",
+                width: "100%",
                 backgroundImage: `url(${base_url}${movie.backdrop_path})`,
                 backgroundPosition: "center center",
             }}>

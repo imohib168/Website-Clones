@@ -27,7 +27,7 @@ function Navbar() {
                 alt="Netflix Logo"
             />
 
-            <button>Sign in</button>
+            {/* <button>Sign in</button> */}
         </header>
     )
 }

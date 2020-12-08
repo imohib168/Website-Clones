@@ -1,8 +1,7 @@
 .navbar {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,12 +20,12 @@
     background-color: black;
 }
 
-.navbar__button {
+/* .navbar__button {
     position: fixed;
     right: 120px;
-}
+} */
 
-button {
+/* button {
     padding: 8px 22px;
     font-size: 18px;
     background-color: red;
@@ -34,4 +33,5 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+    outline: none;
+} */

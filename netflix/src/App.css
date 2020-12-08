@@ -9,11 +9,6 @@ body {
     color: white;
 }
 
-/* body::-webkit-scrollbar {
-    background-color: white;
-    color: black;
-} */
-
 .row {
     margin-left: 20px;
 }
