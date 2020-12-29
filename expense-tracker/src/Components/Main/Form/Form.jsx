@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import formatDate from '../../../utils/formatDate';
 import useStyles from './styles';
 import { incomeCategories, expenseCategories } from '../../../constants/categories';
+import CustomizedSnackBar from '../../SnackBar/SnackBar';
 
 const initialState = {
     amount: '',
@@ -17,22 +18,29 @@ const Form = () => {
 
     const classes = useStyles();
     const [formData, setFormData] = useState(initialState);
-    const { addTransaction } = useContext(ExpenseTrackerContext)
+    const { addTransaction } = useContext(ExpenseTrackerContext);
+    const [open, setOpen] = useState(false);
 
     const createTransaction = () => {
-        const transaction = {
-            ...formData,
-            amount: Number(formData.amount),
-            id: uuidv4(),
+        if (formData.amount === "" || formData.category === "" || formData.date === "" || formData.type === "") {
+            alert("Please Fill the fields...")
+        } else {
+            const transaction = {
+                ...formData,
+                amount: Number(formData.amount),
+                id: uuidv4(),
+            }
+            setOpen(true);
+            addTransaction(transaction);
+            setFormData(initialState);
         }
-        addTransaction(transaction);
-        setFormData(initialState);
     }
 
     const selectedCategory = formData.type === "Income" ? incomeCategories : expenseCategories;
 
     return (
         <Grid container spacing={2}>
+            <CustomizedSnackBar open={open} setOpen={setOpen} />
             <Grid item xs={12}>
                 <Typography variant="subtitle2" align="center" gutterBottom>
                     ...
