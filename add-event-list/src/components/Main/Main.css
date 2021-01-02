@@ -1,0 +1,81 @@
+.container {
+    background-color: lightblue;
+    width: 70%;
+    margin: 40px auto;
+    padding: 10px;
+}
+
+.eventHeading {
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.eventBody {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eventList {
+    width: 90%;
+    padding-bottom: 10px;
+}
+
+.eventList li {
+    background-color: lightcyan;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+    margin: 4px 0px;
+    border-radius: 4px;
+}
+
+.eventList button {
+    padding: 5px 20px;
+    cursor: pointer;
+    background-color: lightpink;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.eventForm {
+    background-color: rgb(190, 229, 252);
+    width: 90%;
+    border-radius: 4px;
+}
+
+.eventForm form {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eventForm form input {
+    font-size: 17px;
+    padding: 8px;
+    color: rgb(255, 255, 255);
+    outline: none;
+    border: none;
+    width: 40%;
+    border-radius: 4px;
+    background-color: rgb(0, 105, 131);
+}
+
+::placeholder {
+    color: lightgray;
+}
+
+.eventForm form button {
+    padding: 9px 20px;
+    cursor: pointer;
+    background-color: rgb(250, 139, 155);
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 15px;
+}
