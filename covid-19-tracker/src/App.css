@@ -1,0 +1,52 @@
+.app {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.app__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.app__stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app__left {
+    width: 65%;
+}
+
+.app__right {
+    width: 25%;
+}
+
+.app__newCases {
+    margin-top: 20px;
+}
+
+@media (max-width: 1050px) {
+    .app {
+        flex-direction: column;
+    }
+    .app__left {
+        width: 100%;
+    }
+    .app__right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 630px) {
+    .head {
+        font-size: 2 0px;
+    }
+    .app__stats {
+        display: flex;
+        flex-direction: column;
+    }
+}
