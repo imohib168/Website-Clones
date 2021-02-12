@@ -1,0 +1,47 @@
+.cover-container {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../code.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    object-fit: contain;
+    /* background-color: black !important; */
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+    color: white;
+}
+
+.cover-container h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.cover-container p {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.cover-btns .btn {
+    margin: 8px;
+}
+
+@media (max-width: 650px) {
+    .cover-container h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    .cover-container p {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .cover-btns {
+        display: flex;
+        flex-direction: column;
+    }
+    .cover-btns .btn {
+        width: 100%;
+    }
+}
