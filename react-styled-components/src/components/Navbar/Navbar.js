@@ -20,6 +20,7 @@ const Navbar = () => {
    const [button, setButton] = useState(true);
 
    const handleClick = () => setClick(!click);
+   const closeMobileMenu = () => setClick(false);
 
    const showButton = () => {
       if (window.innerWidth <= 960) {
@@ -40,7 +41,7 @@ const Navbar = () => {
          <IconContext.Provider value={{ color: "white" }}>
             <Nav>
                <NavbarContainer>
-                  <NavLogo to="/">
+                  <NavLogo to="/" onClick={closeMobileMenu}>
                      <NavIcon />
                      ULTRA
                   </NavLogo>
@@ -50,9 +51,6 @@ const Navbar = () => {
                   <NavMenu onClick={handleClick} click={click}>
                      <NavItem>
                         <NavLink to="/">Home</NavLink>
-                     </NavItem>
-                     <NavItem>
-                        <NavLink to="/about">About</NavLink>
                      </NavItem>
                      <NavItem>
                         <NavLink to="/services">Services</NavLink>
