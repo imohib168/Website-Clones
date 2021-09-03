@@ -5,7 +5,6 @@ import Todo from './Todo';
 const TodoList = () => {
 
     const [todos, setTodos] = useState([]);
-    // console.log(...todos);
 
     const addTodo = todo => {
         if (!todo.text || /^\s*$/.test(todo.text)) {

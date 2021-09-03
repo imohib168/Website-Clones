@@ -1,0 +1,20 @@
+.feed {
+  flex: 0.6;
+  margin-right: 10px;
+}
+
+.feed__inputContainer {
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.feed__inputSection {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.feed__textField {
+  margin-left: 15px;
+}
